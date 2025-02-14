@@ -1,0 +1,73 @@
+{%load static %}
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>my portfolio two</title>
+  <meta name="description" content="My Protofolio" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <!-- modernizr enables HTML5 elements and feature detects -->
+  <script type="text/javascript" src="{% static 'js/modernizr-1.5.min.js' %}"></script>
+</head>
+
+<body>
+  <div id="main">
+    <header>
+      <div id="logo"><h1>MY<a href="#">PORTFOLIO</a>(Isi Nama Lu)</h1></div>
+      <nav>
+        <ul class="lavaLampWithImage" id="lava_menu">
+            <li class="current"><a href="{% url 'index' %}">home</a></li>
+            <li><a href="{% url 'about' %}">about me</a></li>
+            <li><a href="{% url 'portfolio' %}">my portfolio</a></li>
+            <li><a href="{% url 'blog' %}">project</a></li>
+        </ul>
+    </nav>
+    </header>
+    <div id="site_content">
+      <div id="sidebar_container">
+        <div class="gallery">
+          <ul class="images">
+            <li class="show">
+              <img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_one" />
+          </li>
+          <li>
+              <img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_two" />
+          </li>
+          <li>
+              <img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_three" />
+          </li>
+          <li>
+              <img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_four" />
+          </li>
+          <li>
+              <img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_five" />
+          </li>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Hi, I'm (Isi Nama lu), a passionate web developer with over 5 years of experience in programming, including web development using HTML, CSS, JavaScript, PHP, and Python. This website showcases my journey, projects, and the skills I've honed throughout my career. Here, you'll find details about the work I've done, my achievements, and my approach to development.</p>
+        
+        <p>In this portfolio, I highlight projects that reflect my expertise in building dynamic, user-friendly websites and applications. From designing sleek user interfaces to creating backend systems, I strive to deliver well-crafted solutions that meet the needs of the users and businesses I work with.</p>
+      </div>
+    </div>
+  </div>
+  <!-- javascript at the bottom for fast page loading -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'js/jquery.lavalamp.min.js' %}"></script>
+  <script src="{% static 'js/image_fade.js' %}"></script>
+  <script type="text/javascript">
+    $(function() {                                                                                                              
+      $("#lava_menu").lavaLamp({
+        fx: "backout",
+        speed: 700
+      });
+    });
+  </script>
+</body>
+</html>

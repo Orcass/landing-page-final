@@ -1,0 +1,110 @@
+{%load static %}
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>my portfolio two</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <!-- modernizr enables HTML5 elements and feature detects -->
+  <script type="text/javascript" src="{% static 'js/modernizr-1.5.min.js' %}"></script>
+</head>
+
+<body>
+  <div id="main">
+    <header>
+      <div id="logo"><h1>MY<a href="#">PORTFOLIO</a>(Isi Nama Lu)</h1></div>
+      <nav>
+        <ul class="lavaLampWithImage" id="lava_menu">
+          <li><a href="{% url 'index' %}">home</a></li>
+            <li><a href="{% url 'about' %}">about me</a></li>
+            <li><a href="{% url 'portfolio' %}">my portfolio</a></li>
+            <li><a href="{% url 'blog' %}">project</a></li>
+        </ul>
+    </nav>
+    </header>
+    <div id="site_content">
+      <div id="sidebar_container">
+        <div class="gallery">
+          <ul class="images">
+            <li class="show">
+              <img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_one" />
+          </li>
+          <li>
+              <img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_two" />
+          </li>
+          <li>
+              <img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_three" />
+          </li>
+          <li>
+              <img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_four" />
+          </li>
+          <li>
+              <img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_five" />
+          </li>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <h1>My Portfolio</h1>
+        <p>Soo, kemudian hari di waktu yang bersamaan ini sebuah commtits kita.</p>
+        <p></p>
+      </div>
+    </div>
+    <h1>GitHub Contributions</h1>
+    <div id="contributions"></div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <canvas id="githubActivityChart" width="400" height="200"></canvas>
+    <script>
+        fetch('https://api.github.com/users/Orcass/events')
+            .then(response => response.json())
+            .then(data => {
+                const ctx = document.getElementById('githubActivityChart').getContext('2d');
+                const chart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.map(event => new Date(event.created_at).toLocaleDateString()),
+                        datasets: [{
+                            label: 'Contributions',
+                            data: data.map(event => event.type === 'PushEvent' ? 1 : 0),
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                          }, {
+                            type: 'line',
+                            label: 'Line Dataset',
+                            data: data.map(event => event .type === 'PushEvent' ? 1 : 0),
+                            fill: false,
+                            borderColor: 'rgb(54, 162, 235)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            });
+    </script>
+  </div>
+  <!-- javascript at the bottom for fast page loading -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'js/jquery.lavalamp.min.js' %}"></script>
+  <script src="{% static 'js/image_fade.js' %}"></script>
+  <script type="text/javascript">
+    $(function() { 
+      $("#lava_menu").lavaLamp({
+        fx: "backout",
+        speed: 700
+      });
+    });
+  </script>
+</body>
+</html>

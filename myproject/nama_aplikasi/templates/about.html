@@ -1,0 +1,62 @@
+{%load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>my portfolio two</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <!-- modernizr enables HTML5 elements and feature detects -->
+  <script type="text/javascript" src="{% static 'js/modernizr-1.5.min.js' %}"></script>
+</head>
+
+<body>
+  <div id="main">
+    <header>
+      <div id="logo"><h1>MY<a href="#">PORTFOLIO</a>(Isi Nama Lu)</h1></div>
+      <nav>
+        <ul class="lavaLampWithImage" id="lava_menu">
+          <li class="current"><a href="{% url 'index' %}">home</a></li>
+          <li><a href="{% url 'about' %}">about me</a></li>
+          <li><a href="{% url 'portfolio' %}">my portfolio</a></li>
+          <li><a href="{% url 'blog' %}">project</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="site_content">
+      <div id="sidebar_container">
+        <div class="gallery">
+          <ul class="images">
+            <li class="show"><img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_one" /></li>
+            <li><img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_two" /></li>
+            <li><img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_three" /></li>
+            <li><img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_four" /></li>
+            <li><img width="450" height="450" src="{% static 'images/1.jpg' %}" alt="photo_five" /></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <h1>About Me</h1>
+        <p>Hello, let me introduce myself, my name is (Isi Nama Lu), I am 18 years old and also a high school graduate and studying at one of the universities in Indonesia. I took the Information Systems study program because it suits my interests and talents, I am now developing skills and other big projects.</p>
+        <p>Hello, let me introduce myself, my name is (Isi Nama Lu), I am 18 years old and also a high school graduate and studying at one of the universities in Indonesia. I took the Information Systems study program because it suits my interests and talents, I am now developing skills and other big projects.</p>
+        <a href="path-to-your-cv.pdf" class="download-bar" download="">Download My CV</a>
+      </div>
+    </div>
+  </div>
+  <!-- javascript at the bottom for fast page loading -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'js/jquery.lavalamp.min.js' %}"></script>
+  <script src="{% static 'js/image_fade.js' %}"></script>
+  <script type="text/javascript">
+    $(function() {
+      $("#lava_menu").lavaLamp({
+        fx: "backout",
+        speed: 700
+      });
+    });
+  </script>
+</body>
+</html>
